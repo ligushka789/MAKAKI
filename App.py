@@ -5,9 +5,15 @@ from Pages import Yaici
 from Pages import Home
 from Pages import MAKAKI
 from Pages import Zaulpi
+import os
+import pandas as pd
+import numpy as np
 
 image = Image.open('img/makaki.png')
 st.set_page_config(initial_sidebar_state="collapsed", page_icon=image)
+
+logo_path = os.path.join(os.path.dirname(__file__), "img", "whr.svg")
+pages = [" ",'Home','Yaici', 'MAKAKI', 'Zaulpi']
 
 pages = ['Home', 'Yaici', 'MAKAKI', 'Zaulpi']
 
@@ -37,7 +43,7 @@ styles = {
     },
     "active" : {
         "background-color" : "blue",
-        "color":"black",
+        "color":"white",
         "font-weight":"normal",
         "padding":"14px"
     },
@@ -46,7 +52,12 @@ styles = {
     }
 }
 
-page = st_navbar(pages, styles=styles)
+options = {
+    "show_menu":False,
+    "show_sidebar":True,
+}
+
+page = st_navbar(pages, styles=styles,logo_path=logo_path,options=options )
 
 if page == 'Home':
     Home.Home().app()
