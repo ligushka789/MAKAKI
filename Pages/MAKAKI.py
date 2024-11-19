@@ -84,7 +84,7 @@ class MAKAKI:
                         st.write("Idi naher")
                         break
 
-                    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2YCrCb)
+                    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
                     frame_place.image(frame, channels="RGB")
 
                     if stop_button:
